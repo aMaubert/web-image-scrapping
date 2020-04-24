@@ -2,13 +2,13 @@
 
 Web Scrapping d'images . 
 
-##Pré-requis 
+## Pré-requis 
 
 Il faut avoir l'executable [ChromeDriver](https://chromedriver.chromium.org/downloads)  
 Cet executable est un WebDriver pour Chorme.  
 Attention de télecharger le bon driver en fonction de la version de chrome que vous utilisez.
 
-##Example
+## Example
 
 We will suppose the values : 
 
