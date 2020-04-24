@@ -7,6 +7,11 @@ Web Scrapping d'images .
 Il faut avoir l'executable [ChromeDriver](https://chromedriver.chromium.org/downloads)  
 Cet executable est un WebDriver pour Chorme.  
 Attention de télecharger le bon driver en fonction de la version de chrome que vous utilisez.
+## Install dependecies
+
+````shell script
+pip install -r requirements.txt
+````
 
 ## Example
 
