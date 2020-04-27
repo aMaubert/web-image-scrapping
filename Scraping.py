@@ -1,15 +1,24 @@
 #!/usr/bin/python
 from Arguments import Arguments
-from browser import Browser
+from Browser import Browser
 from Downloader import Downloader
+from ImageEditor import ImageEditor
+
+import os
 
 
-def main(args: Arguments) :
+def main( args: Arguments):
     print(args)
     downloader = Downloader(args.output_directory)
     browser = Browser(args.webdriver, args.max_images, args.keyword)
     urls = browser.launchSearch()
     downloader.download_images(urls)
+    for file in os.listdir(args.output_directory) :
+        if file.endswith('.jpg') :
+            image_editor = ImageEditor(file_path= args.output_directory + '/' + file )
+            #convert_mode= 'RGB' => RGB or 'L'=> greyscale
+            image_editor.resize( size=(256, 256), convert_mode='L')
+
 
 
 if __name__ == '__main__':

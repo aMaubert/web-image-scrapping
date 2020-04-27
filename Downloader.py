@@ -5,7 +5,9 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
+
 class Downloader:
+
     def __init__(self, output_directory):
         if not path.exists(output_directory):
             print('Images folder : ', output_directory, ' doesn\'t exist.', file=sys.stderr)

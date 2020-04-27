@@ -3,7 +3,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 from bs4 import BeautifulSoup
 
+
 class Browser:
+
     def __init__(self, webdriverUrl, max_images, key_word):
         self.webdriverUrl = webdriverUrl
         if max_images is not None and max_images > 0 :

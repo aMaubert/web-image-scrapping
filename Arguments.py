@@ -1,4 +1,4 @@
-class Arguments :
+class Arguments:
 
     """Class for arguments"""
     def __init__(self, keyword: str, webdriver, output_directory, max_images):
