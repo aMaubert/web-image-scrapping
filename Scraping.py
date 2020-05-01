@@ -6,7 +6,6 @@ from ImageEditor import ImageEditor
 
 import os
 
-
 def main( args: Arguments):
     print(args)
     downloader = Downloader(args.output_directory)
@@ -17,7 +16,7 @@ def main( args: Arguments):
         if file.endswith('.jpg') :
             image_editor = ImageEditor(file_path= args.output_directory + '/' + file )
             #convert_mode= 'RGB' => RGB or 'L'=> greyscale
-            image_editor.resize( size=(256, 256), convert_mode='L')
+            image_editor.resize( size=(64, 64), convert_mode='RGB')
 
 
 

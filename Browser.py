@@ -12,32 +12,39 @@ class Browser:
             self.max_images = max_images
         else :
             self.max_images = 50
-
-        self.searchUrl = 'https://www.google.fr/search?hl=fr&' \
+        self.searchUrl = []
+        self.searchUrl.append('https://www.bing.com/images/search?q=' + key_word)
+        self.searchUrl.append('https://www.google.fr/search?hl=fr&' \
                          'q='+ key_word + '&'\
-                         'tbm=isch'
+                         'tbm=isch')
+
+
+
 
     def launchSearch(self):
         options = webdriver.ChromeOptions()
         options.add_argument('--no-sandbox')
         browser = webdriver.Chrome(self.webdriverUrl, options=options)
         browser.set_window_size(1280, 1024)
-        browser.get(self.searchUrl)
 
-        element = browser.find_element_by_tag_name('body')
+        all_downloadable_url = []
+        for eachSearchUrl in self.searchUrl :
 
-        # Scroll down
-        for i in range(27) :
-            element.send_keys(Keys.PAGE_DOWN)
-            time.sleep(0.2)
+            browser.get(eachSearchUrl)
 
-        soup = BeautifulSoup(browser.page_source, 'lxml')
+            element = browser.find_element_by_tag_name('body')
 
-        images = soup.find_all('img')
+            # Scroll down
+            for i in range(27) :
+                element.send_keys(Keys.PAGE_DOWN)
+                time.sleep(0.8)
+
+            #soup = BeautifulSoup(browser.page_source, 'lxml')
+            soup = BeautifulSoup(browser.page_source, 'html.parser')
+            all_downloadable_url += soup.find_all('img')
 
         browser.close()
-
-        return self.allUrls(images)
+        return self.allUrls(all_downloadable_url)
 
 
     def allUrls(self, images):
