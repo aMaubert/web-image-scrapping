@@ -2,4 +2,4 @@ beautifulsoup4==4.9.0
 Scrapy3==1.0.1
 requests==2.23.0
 selenium~=3.141.0
-Pillow==7.1.2
+Pillow==8.3.2
